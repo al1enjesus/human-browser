@@ -1,6 +1,6 @@
 {
   "name": "human-browser",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Stealth browser with residential proxies from 10+ countries for AI agents. Bypasses Cloudflare, DataDome, PerimeterX. iPhone 15 Pro fingerprint.",
   "keywords": [
     "browser-automation",

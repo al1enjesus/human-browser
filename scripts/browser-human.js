@@ -40,8 +40,8 @@ function buildProxy(country = 'ro') {
   // Proxy config — use env vars or defaults
   const PROXY_HOST = process.env.PROXY_HOST || 'brd.superproxy.io';
   const PROXY_PORT = process.env.PROXY_PORT || '22225';
-  const PROXY_USER = process.env.PROXY_USER || `brd-customer-hl_b1694dd8-zone-mcp_unlocker${c !== 'ro' ? `-country-${c}` : ''}`;
-  const PROXY_PASS = process.env.PROXY_PASS || 'x8iy8mgsush8';
+  const PROXY_USER = process.env.PROXY_USER || '';
+  const PROXY_PASS = process.env.PROXY_PASS || '';
 
   // Also support legacy env var names for backward compatibility
   const server   = process.env.PROXY_SERVER   || `http://${PROXY_HOST}:${PROXY_PORT}`;
