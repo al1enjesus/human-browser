@@ -1,0 +1,40 @@
+{
+  "name": "human-browser",
+  "version": "3.2.0",
+  "description": "Stealth browser with residential proxies from 10+ countries for AI agents. Bypasses Cloudflare, DataDome, PerimeterX. iPhone 15 Pro fingerprint.",
+  "keywords": [
+    "browser-automation",
+    "stealth-browser",
+    "residential-proxy",
+    "playwright",
+    "cloudflare-bypass",
+    "anti-bot",
+    "scraping",
+    "ai-agent",
+    "human-browser",
+    "multi-country",
+    "instagram-scraping",
+    "web-scraping",
+    "agent-skill"
+  ],
+  "author": "al1enjesus",
+  "license": "MIT",
+  "homepage": "https://humanbrowser.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/al1enjesus/human-browser"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "scripts/",
+    "references/"
+  ],
+  "peerDependencies": {
+    "playwright": ">=1.40.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
