@@ -89,7 +89,7 @@ PROXY_PASS=your_password
 ### Step 3 — Install the skill
 
 ```bash
-clawhub install al1enjesus/human-browser
+clawhub install human-browser
 # or
 npm install human-browser
 ```

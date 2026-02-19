@@ -55,7 +55,7 @@ npm install playwright
 npx playwright install chromium --with-deps
 
 # Install via skill manager
-clawhub install al1enjesus/human-browser
+clawhub install human-browser
 ```
 
 ---
