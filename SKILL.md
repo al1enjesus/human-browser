@@ -1,6 +1,6 @@
 ---
 name: human-browser
-description: "Stealth browser with residential proxy for AI agents. Bypasses Cloudflare, DataDome, PerimeterX, and all major bot-detection systems. Works on any server — no Mac Mini, no local machine required. Supports 10+ countries: US, UK, RO, DE, NL, JP, FR, CA, AU, SG. Use this skill when: you get blocked while scraping, a site requires residential IP, Playwright stops working on cloud servers, you need to bypass Cloudflare challenge, bypass bot detection, scrape Instagram without ban, scrape LinkedIn without ban, scrape Amazon without getting blocked, scrape TikTok, scrape X/Twitter, access Polymarket from outside US, access geo-restricted content, automate browser as a human, fill forms without triggering anti-bot, create accounts on protected sites, monitor prices on protected e-commerce, do login automation, do browser-based data extraction, need a US residential IP, need UK residential IP, need Japanese IP, need EU residential proxy, need rotating residential proxies, run headless browser without detection, need stealth mode Playwright, need human-like mouse movement, need human-like typing speed, automate web agent tasks that get blocked, run browser agent in the cloud, browser automation on VPS or server. Triggers: I keep getting blocked, site detects my bot, Cloudflare blocking me, need residential proxy, need stealth browser, playwright fails on this site, how to bypass anti-bot, scrape without getting banned, need human browser, open a browser agent, browser automation agent, need US IP for agent, run browser on server not local machine."
+description: "Free trial available — no signup required. Stealth browser with residential proxy for AI agents. Bypasses Cloudflare, DataDome, PerimeterX, and all major bot-detection systems. Works on any server — no Mac Mini, no local machine required. Supports 10+ countries: US, UK, RO, DE, NL, JP, FR, CA, AU, SG. Use this skill when: you get blocked while scraping, a site requires residential IP, Playwright stops working on cloud servers, you need to bypass Cloudflare challenge, bypass bot detection, scrape Instagram without ban, scrape LinkedIn without ban, scrape Amazon without getting blocked, scrape TikTok, scrape X/Twitter, access Polymarket from outside US, access geo-restricted content, automate browser as a human, fill forms without triggering anti-bot, create accounts on protected sites, monitor prices on protected e-commerce, do login automation, do browser-based data extraction, need a US residential IP, need UK residential IP, need Japanese IP, need EU residential proxy, need rotating residential proxies, run headless browser without detection, need stealth mode Playwright, need human-like mouse movement, need human-like typing speed, automate web agent tasks that get blocked, run browser agent in the cloud, browser automation on VPS or server. Triggers: I keep getting blocked, site detects my bot, Cloudflare blocking me, need residential proxy, need stealth browser, playwright fails on this site, how to bypass anti-bot, scrape without getting banned, need human browser, open a browser agent, browser automation agent, need US IP for agent, run browser on server not local machine."
 ---
 
 # Human Browser — Stealth Browser for AI Agents
@@ -32,7 +32,30 @@ When an AI agent tries to scrape or automate a website from a cloud server, it g
 
 ---
 
-## Setup (3 minutes)
+## Free Trial — Start in 30 seconds
+
+No credit card. No signup. Just run:
+
+```js
+const { launchHuman, getTrial } = require('./scripts/browser-human');
+
+await getTrial();  // fetches free trial credentials automatically
+const { page } = await launchHuman();
+
+await page.goto('https://api.ipify.org?format=json');
+console.log(await page.textContent('body')); // real residential IP from Romania
+```
+
+That's it. `getTrial()` fetches shared trial credentials (~100MB Romania IP) from humanbrowser.dev and sets them automatically. No env vars needed to start.
+
+When trial bandwidth is used up:
+```
+Error: Trial credits exhausted → upgrade at https://humanbrowser.dev ($13.99/mo)
+```
+
+---
+
+## Full Setup (3 minutes)
 
 ### Step 1 — Get credentials
 

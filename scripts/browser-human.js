@@ -228,7 +228,60 @@ async function launchHuman(opts = {}) {
   return { browser, ctx, page, humanClick, humanMouseMove, humanType, humanScroll, humanRead, sleep, rand };
 }
 
-module.exports = { launchHuman, humanClick, humanMouseMove, humanType, humanScroll, humanRead, sleep, rand, COUNTRY_META };
+// ─── TRIAL ────────────────────────────────────────────────────────────────────
+
+/**
+ * Get free trial credentials from humanbrowser.dev
+ * Fetches shared trial proxy (~100MB, Romania). Sets env vars automatically.
+ *
+ * Usage:
+ *   const { launchHuman, getTrial } = require('./browser-human');
+ *   await getTrial();               // sets PROXY_USER/PASS in process.env
+ *   const { page } = await launchHuman();  // now uses trial credentials
+ *
+ * When trial runs out → throws { code: 'TRIAL_EXHAUSTED', cta_url: '...' }
+ */
+async function getTrial() {
+  let https;
+  try { https = require('https'); } catch { https = require('http'); }
+
+  return new Promise((resolve, reject) => {
+    const req = https.get('https://humanbrowser.dev/api/trial', (res) => {
+      let body = '';
+      res.on('data', chunk => body += chunk);
+      res.on('end', () => {
+        try {
+          const data = JSON.parse(body);
+          if (data.error || res.statusCode !== 200) {
+            const err = new Error(data.error || 'Trial unavailable');
+            err.code = 'TRIAL_UNAVAILABLE';
+            err.cta_url = 'https://humanbrowser.dev';
+            return reject(err);
+          }
+          // Auto-set env vars so launchHuman() picks them up
+          process.env.PROXY_HOST = data.proxy_host;
+          process.env.PROXY_PORT = data.proxy_port;
+          process.env.PROXY_USER = data.proxy_user;
+          process.env.PROXY_PASS = data.proxy_pass;
+
+          console.log('🎉 Human Browser trial activated! (~100MB Romania residential IP)');
+          console.log('   Upgrade at: https://humanbrowser.dev\n');
+          resolve(data);
+        } catch (e) {
+          reject(e);
+        }
+      });
+    });
+    req.on('error', (e) => {
+      const err = new Error('Could not reach humanbrowser.dev: ' + e.message);
+      err.code = 'TRIAL_NETWORK_ERROR';
+      reject(err);
+    });
+    req.setTimeout(10000, () => { req.destroy(); reject(new Error('Trial request timed out')); });
+  });
+}
+
+module.exports = { launchHuman, getTrial, humanClick, humanMouseMove, humanType, humanScroll, humanRead, sleep, rand, COUNTRY_META };
 
 // ─── QUICK TEST ───────────────────────────────────────────────────────────────
 if (require.main === module) {
