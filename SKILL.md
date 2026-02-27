@@ -610,7 +610,7 @@ curl -sx "http://USER:PASS@ro.decodo.com:13001" -X POST https://httpbin.org/post
 
 ## Plans & credentials
 
-🌐 **https://humanbrowser.dev** — get credentials, manage subscription
+🌐 **https://humanbrowser.cloud** — get credentials, manage subscription
 
 | Plan | Price | Countries | Bandwidth |
 |------|-------|-----------|-----------|

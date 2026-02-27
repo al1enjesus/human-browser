@@ -5,7 +5,7 @@
  * Appears as iPhone 15 Pro or Desktop Chrome to every website.
  * Bypasses Cloudflare, DataDome, PerimeterX out of the box.
  *
- * Get credentials: https://humanbrowser.dev
+ * Get credentials: https://humanbrowser.cloud
  * Support: https://t.me/virixlabs
  *
  * Usage:
@@ -200,7 +200,7 @@ function makeProxy(sessionId = null, country = null) {
 // ─── TRIAL CREDENTIALS ───────────────────────────────────────────────────────
 
 /**
- * Get free trial credentials from humanbrowser.dev
+ * Get free trial credentials from humanbrowser.cloud
  * Sets HB_PROXY_USER, HB_PROXY_PASS, HB_PROXY_SESSION, HB_PROXY_PROVIDER
  * No signup needed — Romania residential proxy
  *
@@ -216,7 +216,7 @@ async function getTrial() {
   try {
     const https = require('https');
     const data = await new Promise((resolve, reject) => {
-      const req = https.get('https://humanbrowser.dev/api/trial', res => {
+      const req = https.get('https://humanbrowser.cloud/api/trial', res => {
         let body = '';
         res.on('data', d => body += d);
         res.on('end', () => { try { resolve(JSON.parse(body)); } catch (e) { reject(e); } });
@@ -239,7 +239,7 @@ async function getTrial() {
       if (!process.env.HB_PROXY_COUNTRY) process.env.HB_PROXY_COUNTRY = country;
 
       console.log(`🎉 Human Browser trial activated! (~100MB Romania residential IP)`);
-      console.log(`   Upgrade at: https://humanbrowser.dev\n`);
+      console.log(`   Upgrade at: https://humanbrowser.cloud\n`);
       return { ok: true, provider, country, session };
     }
 
@@ -247,9 +247,9 @@ async function getTrial() {
   } catch (err) {
     const e = new Error(err.message);
     e.code = 'TRIAL_UNAVAILABLE';
-    e.cta_url = 'https://humanbrowser.dev';
+    e.cta_url = 'https://humanbrowser.cloud';
     console.warn('[human-browser] Trial fetch failed:', err.message);
-    console.warn('   → Get credentials at: https://humanbrowser.dev');
+    console.warn('   → Get credentials at: https://humanbrowser.cloud');
     throw e;
   }
 }
@@ -467,7 +467,7 @@ async function launchHuman(opts = {}) {
       await getTrial();
     } catch (e) {
       console.warn('⚠️  Could not fetch trial credentials:', e.message);
-      console.warn('   Get credentials at: https://humanbrowser.dev');
+      console.warn('   Get credentials at: https://humanbrowser.cloud');
     }
   }
 

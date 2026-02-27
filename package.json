@@ -1,6 +1,6 @@
 {
   "name": "human-browser",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Stealth browser for AI agents. Bypasses Cloudflare, DataDome, PerimeterX. Residential IPs from 10+ countries. iPhone 15 Pro fingerprint. Drop-in Playwright replacement — launchHuman() just works.",
   "keywords": [
     "browser-automation",
@@ -31,7 +31,7 @@
   ],
   "author": "al1enjesus",
   "license": "MIT",
-  "homepage": "https://humanbrowser.dev",
+  "homepage": "https://humanbrowser.cloud",
   "repository": {
     "type": "git",
     "url": "https://github.com/al1enjesus/human-browser"
